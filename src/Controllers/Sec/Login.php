@@ -9,7 +9,7 @@ class Login extends \Controllers\PublicController
     private $generalError = "";
     private $hasError = false;
 
-    public function run() :void
+    public function run(): void
     {
         if ($this->isPostBack()) {
             $this->txtEmail = $_POST["txtEmail"];
@@ -23,21 +23,21 @@ class Login extends \Controllers\PublicController
                 $this->errorPswd = "¡Debe ingresar una contraseña!";
                 $this->hasError = true;
             }
-            if (! $this->hasError) {
+            if (!$this->hasError) {
                 if ($dbUser = \Dao\Security\Security::getUsuarioByEmail($this->txtEmail)) {
                     if (!\Dao\Security\Security::verifyPassword($this->txtPswd, $dbUser["userpswd"])) {
                         $this->generalError = "¡Credenciales son incorrectas!";
                         $this->hasError = true;
                         error_log(
                             sprintf(
-                                "ERROR: %d %s contraseña incorrecta",
-                                $dbUser["usercod"],
-                                $dbUser["useremail"]
-                            )
+                            "ERROR: %d %s contraseña incorrecta",
+                            $dbUser["usercod"],
+                            $dbUser["useremail"]
+                        )
                         );
-                        // Aqui se debe establecer acciones segun la politica de la institucion.
+                    // Aqui se debe establecer acciones segun la politica de la institucion.
                     }
-                    if (! $this->hasError) {
+                    if (!$this->hasError) {
                         \Utilities\Security::login(
                             $dbUser["usercod"],
                             $dbUser["username"],
@@ -47,16 +47,18 @@ class Login extends \Controllers\PublicController
                             \Utilities\Site::redirectTo(
                                 \Utilities\Context::getContextByKey("redirto")
                             );
-                        } else {
-                            \Utilities\Site::redirectTo("index.php");
+                        }
+                        else {
+                            \Utilities\Site::redirectTo("index.php?page=index");
                         }
                     }
-                } else {
+                }
+                else {
                     error_log(
                         sprintf(
-                            "ERROR: %s trato de ingresar",
-                            $this->txtEmail
-                        )
+                        "ERROR: %s trato de ingresar",
+                        $this->txtEmail
+                    )
                     );
                     $this->generalError = "¡Credenciales son incorrectas!";
                 }

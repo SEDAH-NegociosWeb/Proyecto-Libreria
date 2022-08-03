@@ -18,6 +18,7 @@
                         <label for="primerNombreAutor" class="col-5">Primer Nombre</label>
                         <input class="col-7" id="primerNombreAutor" name="primerNombreAutor"
                             value="{{primerNombreAutor}}" placeholder="" type="text">
+                        <span class="error">El nombre es requerido</span>
                     </fieldset>
                     <br>
                     <fieldset class="row flex-center align-center">
@@ -32,6 +33,7 @@
                         <label for="primerApellidoAutor" class="col-5">Primer Apellido</label>
                         <input class="col-7" id="primerApellidoAutor" name="primerApellidoAutor"
                             value="{{primerApellidoAutor}}" placeholder="" type="text">
+                        <span class="error">El apellido es requerido</span>
                     </fieldset>
                     <br>
                     <fieldset class="row flex-center align-center">

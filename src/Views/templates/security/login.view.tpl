@@ -32,9 +32,12 @@
         {{endif errorPswd}}
       </div>
       <div class="row">
-        <div class="col-10 col-m-8">
-          <li style="list-style-type: none;"><a href="index.php?page=sec_recuperarpwd" style="text-decoration: none; color: black; padding-left: 21%"><i class="fa-solid fa-rotate"></i>&nbsp;¿Olvidó su Contraseña?</a></li>
-        </div>
+          <div class="col-8">
+            <li style="list-style-type: none;"><a href="index.php?page=sec_recuperarpwd" style="text-decoration: none; color: black; padding-left: 21%"><i class="fa-solid fa-rotate"></i>&nbsp;¿Olvidó su Contraseña?</a></li>
+          </div>
+          <div class="col-4" style="padding-right: 130px">
+            <li style="list-style-type: none;"><a href="index.php?page=sec_register" style="text-decoration: none; color: black; padding-left: 21%"><i class="fas fa-user-plus"></i>&nbsp;Crear Cuenta</a></li>
+          </div>
       </div>
     {{if generalError}}
       <div class="row error col-12 py-2 col-m-8 offset-m-4">

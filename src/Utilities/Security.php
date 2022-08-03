@@ -42,6 +42,13 @@ class Security {
         }
         return 0;
     }
+    public static function getUserEmail()
+    {
+        if (isset($_SESSION["login"])) {
+            return $_SESSION["login"]["userEmail"];
+        }
+        return 0;
+    }
     public static function isAuthorized($userId, $function):bool
     {
         if (\Utilities\Context::getContextByKey("DEVELOPMENT") == "1") {

@@ -26,15 +26,18 @@ try {
     $instance = new $pageRequest();
     $instance->run();
     die();
-} catch(\Controllers\PrivateNoAuthException $ex){
+}
+catch (\Controllers\PrivateNoAuthException $ex) {
     $instance = new \Controllers\NoAuth();
     $instance->run();
     die();
-} catch(\Controllers\PrivateNoLoggedException $ex){
+}
+catch (\Controllers\PrivateNoLoggedException $ex) {
     $redirTo = urlencode(\Utilities\Context::getContextByKey("request_uri"));
-    \Utilities\Site::redirectTo("index.php?page=sec.login&redirto=".$redirTo);
+    \Utilities\Site::redirectTo("index.php?page=sec.login&redirto=" . $redirTo);
     die();
-} catch(Error $ex)
+}
+catch (Error $ex) 
 {
     error_log($ex);
     $instance = new \Controllers\Error();

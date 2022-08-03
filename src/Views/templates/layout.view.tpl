@@ -30,11 +30,10 @@
       <div id="mainListDiv" class="main_list">
         <ul class="navlinks">
           <li><a href="index.php?page=index"><i class="fa-solid fa-house"></i>&nbsp;Inicio</a></li>
-          <li><a href="index.php?page=sec_login"><i class="fas fa-sign-in-alt"></i>&nbsp;Iniciar Sesión</a></li>
-              <li><a href="index.php?page=sec_register"><i class="fas fa-user-plus"></i>&nbsp;Crear Cuenta</a></li>
-          <li><a href="index.php?page=sedah_admin"><i class="fas fa-user-plus"></i>&nbsp;Administrar</a></li>
-          <li><a href="index.php?page=sedah_infoenvio">Sobre nosotros</a></li>
-          <li><a href="#">Contactenos</a></li>
+          </li>
+          <li><a href="#"><i class="fa-solid fa-info"></i>&nbsp;Sobre nosotros</a></li>
+          <li><a href="#"><i class="fa-solid fa-phone"></i>&nbsp;Contactenos</a></li>
+          <li><a href="index.php?page=sec_login"><i class="fas fa-sign-in-alt"></i>&nbsp;Iniciar Sesión</a>
         </ul>
       </div>
       <span class="navTrigger">

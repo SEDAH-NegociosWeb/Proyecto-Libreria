@@ -11,6 +11,9 @@
  */
 namespace Controllers;
 
+use Exception;
+use Views\Renderer;
+
 /**
  * Private Access Controller Base Class
  *
@@ -22,23 +25,55 @@ namespace Controllers;
  */
 abstract class PrivateController extends PublicController
 {
+
+    public function run(): void
+    {
+
+        $this->init();
+
+        $email = \Utilities\Security::getUserEmail();
+        $dbUser = \Dao\Security\Security::getUsuarioByEmail($email);
+        
+        // if ($dbUser["usertipo"] == "ADM") {
+        //     $this->viewdata["mode"] = "ADM";
+        // }
+        // else {
+        //     $this->viewdata["mode"] === "PBL";
+        // }
+
+        // if ($this->viewdata["mode"] === "ADM") {
+        //     $this->viewdata["showOption"] = true;
+        // }
+        // else {
+        //     $this->viewdata["showOption"] = false;
+        // }
+
+        Renderer::render('Views/templates/private', $this->viewdata);
+
+    }
+    private function init()
+    {
+        $this->viewdata = array();
+        $this->viewdata["mode"] = "";
+        $this->viewdata["showOption"] = true;
+    }
     private function _isAuthorized()
     {
         $isAuthorized = \Utilities\Security::isAuthorized(
             \Utilities\Security::getUserId(),
             $this->name
         );
-        if (!$isAuthorized){
+        if (!$isAuthorized) {
             throw new PrivateNoAuthException();
         }
     }
     private function _isAuthenticated()
     {
-        if (!\Utilities\Security::isLogged()){
+        if (!\Utilities\Security::isLogged()) {
             throw new PrivateNoLoggedException();
         }
     }
-    protected function isFeatureAutorized($feature) :bool
+    protected function isFeatureAutorized($feature): bool
     {
         return \Utilities\Security::isAuthorized(
             \Utilities\Security::getUserId(),
