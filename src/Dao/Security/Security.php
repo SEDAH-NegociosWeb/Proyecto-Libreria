@@ -47,8 +47,11 @@ class Security extends \Dao\Table
         return self::obtenerRegistros($sqlstr, array());
     }
 
-    static public function newUsuario($email, $password)
+    static public function newUsuario( $username, $email, $password)
     {
+        if (\Utilities\Validators::IsEmpty($username)) {
+            throw new Exception("Debe ingresar un Nombre de Usuario");
+        }
         if (!\Utilities\Validators::IsValidEmail($email)) {
             throw new Exception("Correo no es válido");
         }
@@ -65,7 +68,7 @@ class Security extends \Dao\Table
         unset($newUser["userpswdchg"]);
 
         $newUser["useremail"] = $email;
-        $newUser["username"] = "John Doe";
+        $newUser["username"] = $username;
         $newUser["userpswd"] = $hashedPassword;
         $newUser["userpswdest"] = Estados::ACTIVO;
         $newUser["userpswdexp"] = date('Y-m-d', time() + 7776000);  //(3*30*24*60*60) (m d h mi s)
@@ -83,6 +86,48 @@ class Security extends \Dao\Table
 
         return self::executeNonQuery($sqlIns, $newUser);
 
+    }
+
+    static public function cambiarContraseñas($token, $password){
+
+        $hashedPassword = self::_hashPassword($password);
+
+        $sqlUp = "UPDATE `usuario` SET `userpswd` = :userpswd where `token` = :token ;";
+        $params = array(
+            "userpswd"=>$hashedPassword,
+            "token"=>$token
+        );
+        
+        return self::executeNonQuery($sqlUp, $params);
+    }
+    
+    static public function saveCodigo($email, $token){
+
+        $sqlUp = "UPDATE `usuario` SET `token` = :token where `useremail` = :useremail ;";
+        $params = array(
+            "useremail"=>$email,
+            "token"=>$token
+        );
+        
+        return self::executeNonQuery($sqlUp, $params);
+    }
+
+    static public function resetCodigo($email){
+
+        $sqlUp = "UPDATE `usuario` SET `token` = null where `useremail` = :useremail ;";
+        $params = array(
+            "useremail"=>$email
+        );
+        
+        return self::executeNonQuery($sqlUp, $params);
+    }
+
+    static public function getEmailByToken($token)
+    {
+        $sqlstr = "SELECT 'useremail' from `usuario` where `token` = :token ;";
+        $params = array("token"=>$token);
+
+        return self::obtenerUnRegistro($sqlstr, $params);
     }
 
     static public function getUsuarioByEmail($email)
