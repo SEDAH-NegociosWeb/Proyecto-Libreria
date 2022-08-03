@@ -1,12 +1,15 @@
 <?php
-namespace Controllers\Mnt\clientes;
+namespace Controllers\Sedah\clientes;
+
 use Controllers\PublicController;
 use Views\Renderer;
-class clientesLista extends PublicController {
-public function run(): void {
-$viewData = array();
-$viewData["clientesLista"] = \Dao\Mnt\clientes::obtenerTodos();
-Renderer::render("mnt/clientesLista", $viewData);
+
+class clientesLista extends PublicController
+{
+    public function run(): void
+    {
+        $viewData = array();
+        $viewData["clientesLista"] = \Dao\Sedah\clientes::obtenerTodos();
+        Renderer::render("sedah/clientesLista", $viewData);
+    }
 }
-}
-?>

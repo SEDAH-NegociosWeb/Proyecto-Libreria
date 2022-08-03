@@ -1,12 +1,15 @@
 <?php
-namespace Controllers\Mnt\libro;
+namespace Controllers\Sedah\libro;
+
 use Controllers\PublicController;
 use Views\Renderer;
-class libroLista extends PublicController {
-public function run(): void {
-$viewData = array();
-$viewData["libroLista"] = \Dao\Mnt\libro::obtenerTodos();
-Renderer::render("mnt/libroLista", $viewData);
+
+class libroLista extends PublicController
+{
+    public function run(): void
+    {
+        $viewData = array();
+        $viewData["libroLista"] = \Dao\Sedah\libro::obtenerTodos();
+        Renderer::render("sedah/libroLista", $viewData);
+    }
 }
-}
-?>
