@@ -1,7 +1,6 @@
-<div style="height: 150px"></div>
-<div class="container-fluid" style="padding-top: 100px ;width: 85%;">
+<div class="container-fluid" style=";width: 85%;">
     <div>
-        <div class="row row-cols-3 row-cols-md-3 g-4">
+        <div class="row g-col-6 g-col-md-4">
         {{foreach Libros}}
             <div class="col">
                 <div class="card">
@@ -26,5 +25,4 @@
         {{endfor Libros}}
         </div>
     </div>
-    <div style="height: 500px;"></div>
 </div>
