@@ -37,6 +37,18 @@ class Login extends \Controllers\PublicController
                         );
                     // Aqui se debe establecer acciones segun la politica de la institucion.
                     }
+                    if($dbUser["userest"] != "ACT"){
+                        $this->generalError = "¡El Usuario se encuentra Inactivo!";
+                        $this->hasError = true;
+                        error_log(
+                            sprintf(
+                                "ERROR: %d %s tiene cuenta con estado %s",
+                                $dbUser["usercod"],
+                                $dbUser["useremail"],
+                                $dbUser["userest"]
+                            )
+                        );
+                    }
                     if (!$this->hasError) {
                         \Utilities\Security::login(
                             $dbUser["usercod"],
