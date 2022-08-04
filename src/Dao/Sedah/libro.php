@@ -29,29 +29,32 @@ class libro extends Table
         $idEditorial,
         $idImagen,
         $idAutor,
-        $idCategoria
+        $idCategoria,
+        $existencia
     ) {
         $sqlstr = "INSERT INTO libro (
-        nombreLibro,
-        descripcion,
-        edicion,
-        anio,
-        precio,
-        idEditorial,
-        idImagen,
-        idAutor,
-        idCategoria
-        ) values (
-        :nombreLibro,
-        :descripcion,
-        :edicion,
-        :anio,
-        :precio,
-        :idEditorial,
-        :idImagen,
-        :idAutor,
-        :idCategoria
-        );";
+nombreLibro,
+descripcion,
+edicion,
+anio,
+precio,
+idEditorial,
+idImagen,
+idAutor,
+idCategoria,
+existencia
+) values (
+:nombreLibro,
+:descripcion,
+:edicion,
+:anio,
+:precio,
+:idEditorial,
+:idImagen,
+:idAutor,
+:idCategoria,
+:existencia
+);";
         return self::executeNonQuery(
             $sqlstr,
             array(
@@ -64,6 +67,7 @@ class libro extends Table
                 "idImagen" => $idImagen,
                 "idAutor" => $idAutor,
                 "idCategoria" => $idCategoria,
+                "existencia" => $existencia,
             )
         );
     }
@@ -77,21 +81,23 @@ class libro extends Table
         $idEditorial,
         $idImagen,
         $idAutor,
-        $idCategoria
+        $idCategoria,
+        $existencia
     ) {
         $sqlstr = "UPDATE libro set
-        nombreLibro = :nombreLibro,
-        descripcion = :descripcion,
-        edicion = :edicion,
-        anio = :anio,
-        precio = :precio,
-        idEditorial = :idEditorial,
-        idImagen = :idImagen,
-        idAutor = :idAutor,
-        idCategoria = :idCategoria
-        where
-        idLibro = :idLibro
-        ";
+nombreLibro = :nombreLibro,
+descripcion = :descripcion,
+edicion = :edicion,
+anio = :anio,
+precio = :precio,
+idEditorial = :idEditorial,
+idImagen = :idImagen,
+idAutor = :idAutor,
+idCategoria = :idCategoria,
+existencia = :existencia
+where
+idLibro = :idLibro
+";
         return self::executeNonQuery(
             $sqlstr,
             array(
@@ -105,6 +111,7 @@ class libro extends Table
                 "idImagen" => $idImagen,
                 "idAutor" => $idAutor,
                 "idCategoria" => $idCategoria,
+                "existencia" => $existencia,
             )
         );
     }

@@ -22,7 +22,7 @@
     <div class="row" style="height: 200px; padding-top: 20px;">
         <div class="col-md-4">
             <button type="button" class="btn btn-info" style="height: 110px; width: 200px;"
-                onclick="location.href='index.php?page=sedah_clientes_clientesLista'"><strong>Clientes</strong>
+                onclick="location.href='index.php?page=sedah_usuario_usuarioLista'"><strong>Usuario</strong>
             </button>
         </div>
         <div class="col-md-4">

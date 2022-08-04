@@ -2,12 +2,13 @@
     <a class="btn btn-primary" style="background-color: #fff;" href="index.php?page=sedah_admin" role="button">
         <img src="public\imgs\back-button.png" alt="" style="width: 20px;">
     </a>
-    <h1 style="padding: 1.5rem;">Libro</h1>
+
+    <h1 style="padding: 1.5rem;">Libros</h1>
     <hr>
     <table class="table">
         <thead class="table-light">
             <tr>
-                <th>ID</th>
+                <th>ID Libro</th>
                 <th>Nombre</th>
                 <th>Descripción</th>
                 <th>Edición</th>
@@ -17,13 +18,14 @@
                 <th>Imagen</th>
                 <th>Autor</th>
                 <th>Categoria</th>
-                <th><a href="index.php?page=sedah.libro.libro&mode=INS&idLibro=0"><img src="public\imgs\add32px.png" alt="editar"></a></th>
+                <th>Existencia</th>
+                <th><a href="index.php?page=sedah.libro.libro&mode=INS&idLibro=0"><img src="public\imgs\add32px.png" alt="add"></a></th>
             </tr>
         </thead>
         <tbody>
             {{foreach libroLista}}
             <tr>
-                <th scope="row">{{idLibro}}</th>
+                <td>{{idLibro}}</td>
                 <td> <a href="index.php?page=sedah.libro.libro&mode=DSP&idLibro={{idLibro}}">
                         {{nombreLibro}}</a></td>
                 <td>{{descripcion}}</td>
@@ -34,6 +36,7 @@
                 <td>{{idImagen}}</td>
                 <td>{{idAutor}}</td>
                 <td>{{idCategoria}}</td>
+                <td>{{existencia}}</td>
                 <td>
                     <a href="index.php?page=sedah.libro.libro&mode=UPD&idLibro={{idLibro}}"><img src="public\imgs\edit.png" alt="editar" style="width: 20px;"></a>
                     &nbsp;

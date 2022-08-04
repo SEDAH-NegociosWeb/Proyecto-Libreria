@@ -54,27 +54,36 @@ class Autor extends PublicController
             \Utilities\Site::redirectToWithMsg("index.php?page=sedah.Autor.AutorLista", "Ocurrio un error, no se puede procesar");
         }
 
+        $nombre = $this->_viewData["primerNombreAutor"];
+        $apellido = $this->_viewData["primerApellidoAutor"];
+        $fechaN = strtotime($this->_viewData["fechaDeNacimiento"]);
+        $fecha_actual = strtotime(date("Y").'/'.date("m").'/'.date("d"));
+        
         $this->_viewData["idAutor"] = intval($this->_viewData["idAutor"], 10);
         if (isset($this->_viewData["errors"]) && count($this->_viewData["errors"]) > 0) {
         } else {
             unset($_SESSION["Autor_crsxToken"]);
             switch ($this->_viewData["mode"]) {
                 case "INS":
-                    $result = \Dao\Sedah\Autor::insertarAutor(
-                        $this->_viewData["primerNombreAutor"],
-                        $this->_viewData["segundoNombreAutor"],
-                        $this->_viewData["primerApellidoAutor"],
-                        $this->_viewData["segundoApellidoAutor"],
-                        $this->_viewData["idImagen"],
-                        $this->_viewData["fechaDeNacimiento"]
-                    );
-                    if ($result) {
-                        \Utilities\Site::redirectToWithMsg(
-                            "index.php?page=sedah.Autor.AutorLista",
-                            "¡Registro guardado exitosamente!"
+                    if (($fechaN < $fecha_actual) && $nombre != "" && $apellido != "" ){
+            
+                        $result = \Dao\Sedah\Autor::insertarAutor(
+                            $this->_viewData["primerNombreAutor"],
+                            $this->_viewData["segundoNombreAutor"],
+                            $this->_viewData["primerApellidoAutor"],
+                            $this->_viewData["segundoApellidoAutor"],
+                            $this->_viewData["idImagen"],
+                            $this->_viewData["fechaDeNacimiento"]
                         );
+                        if ($result) {
+                            \Utilities\Site::redirectToWithMsg(
+                                "index.php?page=sedah.Autor.AutorLista",
+                                "¡Registro guardado exitosamente!"
+                            );
+                        }
                     }
                     break;
+
                 case "UPD":
                     $result = \Dao\Sedah\Autor::actualizarAutor(
                         $this->_viewData["idAutor"],
@@ -135,6 +144,7 @@ class Autor extends PublicController
             $this->handlePost();
         }
         $this->prepareViewData();
+        $this->_viewData["imagen"] = \Dao\sedah\imagen::obtenerTodos();
         Renderer::render("sedah/Autor", $this->_viewData);
     }
 }

@@ -15,43 +15,41 @@
                     </fieldset>
                     <br>
                     <fieldset class="row flex-center align-center">
-                        <label for="primerNombreAutor" class="col-5">Primer Nombre</label>
-                        <input class="col-7" id="primerNombreAutor" name="primerNombreAutor"
-                            value="{{primerNombreAutor}}" placeholder="" type="text">
-                        <span class="error">El nombre es requerido</span>
+                        <input type="text" class="form-control" name="primerNombreAutor" id="primerNombreAutor" value="{{primerNombreAutor}}" required />
+                        <label for="primerNombreAutor" class="form-label col-5">Primer Nombre</label>
                     </fieldset>
-                    <br>
                     <fieldset class="row flex-center align-center">
-                        <label for="segundoNombreAutor" class="col-5">Segundo Nombre</label>
-                        <input class="col-7" id="segundoNombreAutor" name="segundoNombreAutor"
-                            value="{{segundoNombreAutor}}" placeholder="" type="text">
+                        <input type="text" class="form-control" name="segundoNombreAutor" id="segundoNombreAutor" value="{{segundoNombreAutor}}" />
+                        <label for="segundoNombreAutor" class="form-label col-5">Segundo Nombre</label>
                     </fieldset>
                 </div>
 
                 <div class="col-md-6">
                     <fieldset class="row flex-center align-center">
-                        <label for="primerApellidoAutor" class="col-5">Primer Apellido</label>
-                        <input class="col-7" id="primerApellidoAutor" name="primerApellidoAutor"
-                            value="{{primerApellidoAutor}}" placeholder="" type="text">
-                        <span class="error">El apellido es requerido</span>
+                        <input type="text" class="form-control" name="primerApellidoAutor" id="primerApellidoAutor" value="{{primerApellidoAutor}}" required />
+                        <label for="primerApellidoAutor" class="form-label col-5">Primer Apellido</label>
+                    </fieldset>
+                    <fieldset class="row flex-center align-center">
+                        <input type="text" class="form-control" name="segundoApellidoAutor" id="segundoApellidoAutor" value="{{segundoApellidoAutor}}" />
+                        <label for="segundoApellidoAutor" class="form-label col-5">Segundo Apellido</label>
+                    </fieldset>
+                    <br>
+                    <label for="idImagen" class="col-5">Imagen</label>
+                    <fieldset class="row flex-center align-center">
+                        <div class="custom-select" style="width:200px;">
+                            <select id="idImagen" name="idImagen" onchange="select()">
+                                <option value="0">Selecciona </option>
+                                {{foreach imagen}}
+                                <option value="{{idImagen}}">{{direccion}}</option>
+                                {{endfor imagen}}
+                            </select>
+                            <img style="width:80%; height:auto;" id="imgImagen" src="" alt="">
+                        </div>
                     </fieldset>
                     <br>
                     <fieldset class="row flex-center align-center">
-                        <label for="segundoApellidoAutor" class="col-5">Segundo Apellido</label>
-                        <input class="col-7" id="segundoApellidoAutor" name="segundoApellidoAutor"
-                            value="{{segundoApellidoAutor}}" placeholder="" type="text">
-                    </fieldset>
-                    <br>
-                    <fieldset class="row flex-center align-center">
-                        <label for="idImagen" class="col-5">ID Imagen</label>
-                        <input class="col-7" id="idImagen" name="idImagen" value="{{idImagen}}" placeholder=""
-                            type="text">
-                    </fieldset>
-                    <br>
-                    <fieldset class="row flex-center align-center">
-                        <label for="fechaDeNacimiento" class="col-5">Fecha Nacimiento</label>
-                        <input class="col-7" id="fechaDeNacimiento" name="fechaDeNacimiento"
-                            value="{{fechaDeNacimiento}}" placeholder="" type="text">
+                        <input type="date" class="form-control" name="fechaDeNacimiento" id="fechaDeNacimiento" value="{{fechaDeNacimiento}}" required />
+                        <label for="fechaDeNacimiento" class="form-label col-5">Fecha Nacimiento</label>
                     </fieldset>
                 </div>
             </div>
@@ -73,4 +71,9 @@
             window.location.assign("index.php?page=sedah.Autor.AutorLista");
         });
     });
+
+    var seleccion = document.getElementById("idImagen");
+    function select(){
+        document.getElementById("imgImagen").src = seleccion.selectedOptions[0].text;
+    }
 </script>
