@@ -34,13 +34,13 @@ class Carrito extends PublicController
         foreach ($this->viewData["Libros"] as $key => $value) {
             $this->viewData["Total"] += $value["precio"] * $value["cantidad"];
         }
-
     }
 
     private function procesarPost()
     {
         $result = null;
         $idProducto = $_POST['idLibro'];
+
 
         $result = DaoCarrito::quitarProductoDelCarrito($idProducto);
         if ($result) {

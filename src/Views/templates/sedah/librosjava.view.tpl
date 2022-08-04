@@ -1,4 +1,4 @@
-<div class="container-fluid" style=";width: 85%;">
+<div class="container-fluid" style="padding-bottom: 200px;">
     <div>
         <div class="row g-col-6 g-col-md-4">
         {{foreach Libros}}
