@@ -15,7 +15,7 @@
                 <th scope="col">Segundo Apellido</th>
                 <th scope="col">ID Imagen</th>
                 <th scope="col">Fecha Nacimiento</th>
-                <th scope="col"><a href="index.php?page=sedah.Autor.Autor&mode=INS&idAutor=0"><img src="public\imgs\add32px.png" alt="editar"></a></th>
+                <th scope="col"><a href="index.php?page=sedah.Autor.Autor&mode=INS&idAutor=0"><img src="public\imgs\add32px.png" alt="add"></a></th>
             </tr>
         </thead>
         <tbody>

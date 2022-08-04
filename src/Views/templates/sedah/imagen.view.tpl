@@ -4,7 +4,8 @@
 
     <section class="container-m"></section>
     <div class="container" style="width: 60rem;">
-        <form action="index.php?page=sedah.imagen.imagen&mode={{mode}}&idImagen={{idImagen}}" method="post">
+        <form action="index.php?page=sedah.imagen.imagen&mode={{mode}}&idImagen={{idImagen}}"
+            method="post">
 
             <div class="row">
                 <div class="col-md-8"><input type="hidden" name="crsxToken" value="{{crsxToken}}">
@@ -15,9 +16,11 @@
                     </fieldset>
                     <br>
                     <fieldset class="row flex-center align-center">
-                        <label for="direccion" class="col-5">Dirección</label>
-                        <textarea name="direccion" id="direccion" placeholdercols="10" rows="2" placeholder="{{direccion}}" value="{{direccion}}"></textarea>
+                        <textarea class="form-control is-valid" name="direccion" id="direccion" placeholder=""
+                            required>{{direccion}}</textarea>
+                        <label for="direccion" class="form-label">Dirección</label>
                     </fieldset>
+
                 </div>
 
                 <div class="col-md-4">
@@ -47,4 +50,5 @@
             window.location.assign("index.php?page=sedah.imagen.imagenLista");
         });
     });
+
 </script>

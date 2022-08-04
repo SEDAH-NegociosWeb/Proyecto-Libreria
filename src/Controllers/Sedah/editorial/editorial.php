@@ -52,51 +52,59 @@ class editorial extends PublicController
             \Utilities\Site::redirectToWithMsg("index.php?page=sedah.editorial.editorialLista", "Ocurrio un error, no se puede procesar");
         }
 
-        $this->_viewData["idEditorial"] = intval($this->_viewData["idEditorial"], 10);
-        if (isset($this->_viewData["errors"]) && count($this->_viewData["errors"]) > 0) {
-        } else {
-            unset($_SESSION["editorial_crsxToken"]);
-            switch ($this->_viewData["mode"]) {
-                case "INS":
-                    $result = \Dao\Sedah\editorial::insertareditorial(
-                        $this->_viewData["nombreEditorial"],
-                        $this->_viewData["direccion"],
-                        $this->_viewData["telefono"],
-                        $this->_viewData["email"]
-                    );
-                    if ($result) {
-                        \Utilities\Site::redirectToWithMsg(
-                            "index.php?page=sedah.editorial.editorialLista",
-                            "¡Registro guardado exitosamente!"
+        $nombre = $this->_viewData["nombreEditorial"];
+        $direccion = $this->_viewData["direccion"];
+        $telefono = $this->_viewData["telefono"];
+        $email = $this->_viewData["email"];
+
+        if ($nombre != "" && $direccion != "" && $telefono != "" && \Utilities\Validators::IsValidEmail($email)) {
+
+            $this->_viewData["idEditorial"] = intval($this->_viewData["idEditorial"], 10);
+            if (isset($this->_viewData["errors"]) && count($this->_viewData["errors"]) > 0) {
+            } else {
+                unset($_SESSION["editorial_crsxToken"]);
+                switch ($this->_viewData["mode"]) {
+                    case "INS":
+                        $result = \Dao\Sedah\editorial::insertareditorial(
+                            $this->_viewData["nombreEditorial"],
+                            $this->_viewData["direccion"],
+                            $this->_viewData["telefono"],
+                            $this->_viewData["email"]
                         );
-                    }
-                    break;
-                case "UPD":
-                    $result = \Dao\Sedah\editorial::actualizareditorial(
-                        $this->_viewData["idEditorial"],
-                        $this->_viewData["nombreEditorial"],
-                        $this->_viewData["direccion"],
-                        $this->_viewData["telefono"],
-                        $this->_viewData["email"]
-                    );
-                    if ($result) {
-                        \Utilities\Site::redirectToWithMsg(
-                            "index.php?page=sedah.editorial.editorialLista",
-                            "¡Registro Actualizado exitosamente!"
+                        if ($result) {
+                            \Utilities\Site::redirectToWithMsg(
+                                "index.php?page=sedah.editorial.editorialLista",
+                                "¡Registro guardado exitosamente!"
+                            );
+                        }
+                        break;
+                    case "UPD":
+                        $result = \Dao\Sedah\editorial::actualizareditorial(
+                            $this->_viewData["idEditorial"],
+                            $this->_viewData["nombreEditorial"],
+                            $this->_viewData["direccion"],
+                            $this->_viewData["telefono"],
+                            $this->_viewData["email"]
                         );
-                    }
-                    break;
-                case "DEL":
-                    $result = \Dao\Sedah\editorial::eliminareditorial(
-                        $this->_viewData["idEditorial"]
-                    );
-                    if ($result) {
-                        \Utilities\Site::redirectToWithMsg(
-                            "index.php?page=sedah.editorial.editorialLista",
-                            "¡Registro Eliminado exitosamente!"
+                        if ($result) {
+                            \Utilities\Site::redirectToWithMsg(
+                                "index.php?page=sedah.editorial.editorialLista",
+                                "¡Registro Actualizado exitosamente!"
+                            );
+                        }
+                        break;
+                    case "DEL":
+                        $result = \Dao\Sedah\editorial::eliminareditorial(
+                            $this->_viewData["idEditorial"]
                         );
-                    }
-                    break;
+                        if ($result) {
+                            \Utilities\Site::redirectToWithMsg(
+                                "index.php?page=sedah.editorial.editorialLista",
+                                "¡Registro Eliminado exitosamente!"
+                            );
+                        }
+                        break;
+                }
             }
         }
     }

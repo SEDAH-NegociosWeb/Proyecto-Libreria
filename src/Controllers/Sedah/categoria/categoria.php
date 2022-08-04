@@ -49,45 +49,50 @@ class categoria extends PublicController
             \Utilities\Site::redirectToWithMsg("index.php?page=sedah.categoria.categoriaLista", "Ocurrio un error, no se puede procesar");
         }
 
-        $this->_viewData["idCategoria"] = intval($this->_viewData["idCategoria"], 10);
-        if (isset($this->_viewData["errors"]) && count($this->_viewData["errors"]) > 0) {
-        } else {
-            unset($_SESSION["categoria_crsxToken"]);
-            switch ($this->_viewData["mode"]) {
-                case "INS":
-                    $result = \Dao\Sedah\categoria::insertarcategoria(
-                        $this->_viewData["nombreCategoria"]
-                    );
-                    if ($result) {
-                        \Utilities\Site::redirectToWithMsg(
-                            "index.php?page=sedah.categoria.categoriaLista",
-                            "¡Registro guardado exitosamente!"
+        $nombreCategoria = $this->_viewData["nombreCategoria"];
+
+        if($nombreCategoria != ""){
+
+            $this->_viewData["idCategoria"] = intval($this->_viewData["idCategoria"], 10);
+            if (isset($this->_viewData["errors"]) && count($this->_viewData["errors"]) > 0) {
+            } else {
+                unset($_SESSION["categoria_crsxToken"]);
+                switch ($this->_viewData["mode"]) {
+                    case "INS":
+                        $result = \Dao\Sedah\categoria::insertarcategoria(
+                            $this->_viewData["nombreCategoria"]
                         );
-                    }
-                    break;
-                case "UPD":
-                    $result = \Dao\Sedah\categoria::actualizarcategoria(
-                        $this->_viewData["idCategoria"],
-                        $this->_viewData["nombreCategoria"]
-                    );
-                    if ($result) {
-                        \Utilities\Site::redirectToWithMsg(
-                            "index.php?page=sedah.categoria.categoriaLista",
-                            "¡Registro Actualizado exitosamente!"
+                        if ($result) {
+                            \Utilities\Site::redirectToWithMsg(
+                                "index.php?page=sedah.categoria.categoriaLista",
+                                "¡Registro guardado exitosamente!"
+                            );
+                        }
+                        break;
+                    case "UPD":
+                        $result = \Dao\Sedah\categoria::actualizarcategoria(
+                            $this->_viewData["idCategoria"],
+                            $this->_viewData["nombreCategoria"]
                         );
-                    }
-                    break;
-                case "DEL":
-                    $result = \Dao\Sedah\categoria::eliminarcategoria(
-                        $this->_viewData["idCategoria"]
-                    );
-                    if ($result) {
-                        \Utilities\Site::redirectToWithMsg(
-                            "index.php?page=sedah.categoria.categoriaLista",
-                            "¡Registro Eliminado exitosamente!"
+                        if ($result) {
+                            \Utilities\Site::redirectToWithMsg(
+                                "index.php?page=sedah.categoria.categoriaLista",
+                                "¡Registro Actualizado exitosamente!"
+                            );
+                        }
+                        break;
+                    case "DEL":
+                        $result = \Dao\Sedah\categoria::eliminarcategoria(
+                            $this->_viewData["idCategoria"]
                         );
-                    }
-                    break;
+                        if ($result) {
+                            \Utilities\Site::redirectToWithMsg(
+                                "index.php?page=sedah.categoria.categoriaLista",
+                                "¡Registro Eliminado exitosamente!"
+                            );
+                        }
+                        break;
+                }
             }
         }
     }

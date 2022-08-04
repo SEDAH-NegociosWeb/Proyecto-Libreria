@@ -15,29 +15,23 @@
                     </fieldset>
                     <br>
                     <fieldset class="row flex-center align-center">
-                        <label for="primerNombreAutor" class="col-5">Primer Nombre</label>
-                        <input class="col-7" id="primerNombreAutor" name="primerNombreAutor"
-                            value="{{primerNombreAutor}}" placeholder="" type="text">
+                        <input type="text" class="form-control" name="primerNombreAutor" id="primerNombreAutor" value="{{primerNombreAutor}}" required />
+                        <label for="primerNombreAutor" class="form-label col-5">Primer Nombre</label>
                     </fieldset>
-                    <br>
                     <fieldset class="row flex-center align-center">
-                        <label for="segundoNombreAutor" class="col-5">Segundo Nombre</label>
-                        <input class="col-7" id="segundoNombreAutor" name="segundoNombreAutor"
-                            value="{{segundoNombreAutor}}" placeholder="" type="text">
+                        <input type="text" class="form-control" name="segundoNombreAutor" id="segundoNombreAutor" value="{{segundoNombreAutor}}" />
+                        <label for="segundoNombreAutor" class="form-label col-5">Segundo Nombre</label>
                     </fieldset>
                 </div>
 
                 <div class="col-md-6">
                     <fieldset class="row flex-center align-center">
-                        <label for="primerApellidoAutor" class="col-5">Primer Apellido</label>
-                        <input class="col-7" id="primerApellidoAutor" name="primerApellidoAutor"
-                            value="{{primerApellidoAutor}}" placeholder="" type="text">
+                        <input type="text" class="form-control" name="primerApellidoAutor" id="primerApellidoAutor" value="{{primerApellidoAutor}}" required />
+                        <label for="primerApellidoAutor" class="form-label col-5">Primer Apellido</label>
                     </fieldset>
-                    <br>
                     <fieldset class="row flex-center align-center">
-                        <label for="segundoApellidoAutor" class="col-5">Segundo Apellido</label>
-                        <input class="col-7" id="segundoApellidoAutor" name="segundoApellidoAutor"
-                            value="{{segundoApellidoAutor}}" placeholder="" type="text">
+                        <input type="text" class="form-control" name="segundoApellidoAutor" id="segundoApellidoAutor" value="{{segundoApellidoAutor}}" />
+                        <label for="segundoApellidoAutor" class="form-label col-5">Segundo Apellido</label>
                     </fieldset>
                     <br>
                     <fieldset class="row flex-center align-center">
@@ -47,9 +41,8 @@
                     </fieldset>
                     <br>
                     <fieldset class="row flex-center align-center">
-                        <label for="fechaDeNacimiento" class="col-5">Fecha Nacimiento</label>
-                        <input class="col-7" id="fechaDeNacimiento" name="fechaDeNacimiento"
-                            value="{{fechaDeNacimiento}}" placeholder="" type="text">
+                        <input type="date" class="form-control" name="fechaDeNacimiento" id="fechaDeNacimiento" value="{{fechaDeNacimiento}}" required />
+                        <label for="fechaDeNacimiento" class="form-label col-5">Fecha Nacimiento</label>
                     </fieldset>
                 </div>
             </div>

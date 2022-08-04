@@ -15,29 +15,25 @@
                     </fieldset>
                     <br>
                     <fieldset class="row flex-center align-center">
-                        <label for="nombreEditorial" class="col-5">Nombre</label>
-                        <input class="col-7" id="nombreEditorial" name="nombreEditorial" value="{{nombreEditorial}}"
-                            placeholder="" type="text">
+                        <input type="text" class="form-control" name="nombreEditorial" id="nombreEditorial" value="{{nombreEditorial}}" required />
+                        <label for="nombreEditorial" class="form-label col-5">Nombre</label>
                     </fieldset>
-                    <br>
                     <fieldset class="row flex-center align-center">
-                        <label for="direccion" class="col-5">Dirección</label>
-                        <textarea name="direccion" id="direccion" placeholdercols="30" rows="2"
-                            placeholder="{{direccion}}" value="{{direccion}}"></textarea>
+                        <textarea class="form-control is-valid" name="direccion" id="direccion" placeholder=""
+                            required>{{direccion}}</textarea>
+                        <label for="direccion" class="form-label">Dirección</label>
                     </fieldset>
                 </div>
 
 
                 <div class="col-md-6">
                     <fieldset class="row flex-center align-center">
-                        <label for="telefono" class="col-5">Teléfono</label>
-                        <input class="col-7" id="telefono" name="telefono" value="{{telefono}}" placeholder=""
-                            type="text">
+                        <input type="number" class="form-control" name="telefono" id="telefono" value="{{telefono}}" required />
+                        <label for="telefono" class="form-label col-5">Teléfono</label>
                     </fieldset>
-                    <br>
                     <fieldset class="row flex-center align-center">
-                        <label for="email" class="col-5">Correo</label>
-                        <input class="col-7" id="email" name="email" value="{{email}}" placeholder="" type="text">
+                        <input type="email" class="form-control" name="email" id="email" value="{{email}}" required />
+                        <label for="email" class="form-label col-5">Correo</label>
                     </fieldset>
                 </div>
             </div>
