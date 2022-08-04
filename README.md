@@ -6,7 +6,7 @@
   Héctor Eduardo Osorio Castellanos #1208 2001 00571
   David Edgardo Mejía Urbina #1608 2002 00031
   Ericka Marleny Castellanos Alvarado #0501 1998 07359
-
+  
 
 ### Link del Repositorio
 		
