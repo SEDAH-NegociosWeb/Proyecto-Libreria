@@ -72,7 +72,7 @@
                     <h4>Correo:</h4>
                 </center>
                 <center>
-                    <h5 class="terms">sedah@example.com</h5>
+                    <h5 class="terms">sedah2023@gmail.com</h5>
                 </center>
                 <center>
                     <h4>Teléfonos:</h4>

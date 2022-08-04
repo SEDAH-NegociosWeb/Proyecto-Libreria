@@ -47,10 +47,24 @@
   </div>
 
   <div class="container d-grid gap-2" style="margin-top: 50px; margin-bottom:50px">
-    <h1 style="text-align: right;">Total: $ {{Total}}</h1>
+    <h1 style="text-align: right;" >Total: $ {{Total}}</h1>
+    <input type="hidden" name="Total" id="Total" value="{{Total}}">
     <hr>
     <button type="button" class="btn btn-info" style="font-size: 1.5rem;"
-      onclick="window.location='index.php?page=sedah_infoenvio'">Realizar Compra</button>
+      onclick="RealizarCompra()">Realizar Compra</button>
   </div>
 
 </div>
+
+<script>
+  function RealizarCompra() {
+    let inputValue = document.getElementById("Total").value; 
+    
+    if (inputValue > 0) {
+      window.location.href = 'index.php?page=sedah_infoenvio';
+    } else {
+      alert('Agregue Productos al carrito!');
+      window.location.href = 'index.php?page=sedah_LibrosJava';
+    }
+  }
+</script>

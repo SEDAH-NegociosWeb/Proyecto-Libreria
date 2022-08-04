@@ -7,7 +7,8 @@ class Autor extends Table
 {
     public static function obtenerTodos()
     {
-        $sqlstr = "select * from autor";
+        $sqlstr = "select a.idAutor, a.primerNombreAutor, a.segundoNombreAutor, a.primerApellidoAutor, a.segundoApellidoAutor, i.direccion, a.fechaDeNacimiento from autor as a
+        inner join imagen as i on a.idImagen = i.idImagen;";
         return self::obtenerRegistros(
             $sqlstr,
             array()
@@ -20,6 +21,15 @@ class Autor extends Table
             $sqlstr,
             array("id" => $id));
     }
+
+    public static function obtenerTodosNombres(){
+        $sqlstr = "Select idAutor, concat(primerNombreAutor, ' ', primerApellidoAutor) as nombre from autor;";
+        return self::obtenerRegistros(
+            $sqlstr,
+            array()
+        );
+    }
+
     public static function insertarAutor(
         $primerNombreAutor,
         $segundoNombreAutor,
