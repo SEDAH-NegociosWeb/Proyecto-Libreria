@@ -1,6 +1,6 @@
 <div class="container p-5">
     <div style="height: 100px"></div>
-<div class="container-fluid">
+    <div class="container-fluid">
         <ul id="listProgress">
             <li class="active" id="direccion"><strong>Envio</strong></li>
             <li class="active" id="pago"><strong>Pago</strong></li>
@@ -17,8 +17,10 @@
         <br>
         <h1>Factura</h1>
         <div class="container text-center">
-            <img src="https://cdn.dribbble.com/users/1751799/screenshots/5512482/check02_still_2x.gif?compress=1&resize=400x300" alt="">
+            <img src="https://cdn.dribbble.com/users/1751799/screenshots/5512482/check02_still_2x.gif?compress=1&resize=400x300"
+                alt="">
             <h4>Tu pedido está siendo realizado...</h4>
         </div>
+        <pre>{{orderjson}}</pre>
 
-</div>
+    </div>
