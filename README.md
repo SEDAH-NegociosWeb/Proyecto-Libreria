@@ -1,5 +1,7 @@
 #Proyecto Libreria SEDAH
+
 Colaboradores
+
 		    Samuel Isaac Oviedo Sánches #1503 2002 00112
 		    Abdiel Jesús Girón García #0314 2000 00189
 		    Héctor Eduardo Osorio Castellanos #1208 2001 00571
