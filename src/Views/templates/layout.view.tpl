@@ -115,13 +115,11 @@
   {{endfor EndScripts}}
   <!-- MDB -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.3.0/mdb.min.js"></script>
-  <script src="../../../public/js/progressbar.js"></script>
 </body>
 
 </html>
 <!-- Jquery needed -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="js/scripts.js"></script>
 
 <!-- Function used to shrink nav bar removing paddings and adding black background -->
 <script>

@@ -2,22 +2,22 @@
     <div style="height: 100px"></div>
     <div class="container-fluid">
 
-        <form action="index.php?page=Sedah_prefactura" method="post" id="infoEnvio">
-            <ul id="listProgress">
-                <li class="active" id="direccion"><strong>Envio</strong></li>
-                <li class="active" id="pago"><strong>Pago</strong></li>
-                <li class="active" id="confirmacion"></i><strong>Confirmación</strong></li>
-                <li id="factura"></i><strong>Factura</strong></li>
-            </ul>
+        <ul id="listProgress">
+            <li class="active" id="direccion"><strong>Envio</strong></li>
+            <li class="active" id="confirmacion"></i><strong>Confirmación</strong></li>
+            <li id="factura"></i><strong>Factura</strong></li>
+        </ul>
 
-            <!-- progressbar -->
-            <div class="progress" style="height: 20px;">
-                <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar"
-                    aria-label="Animated striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"
-                    style="width: 65%"></div>
-            </div>
-            <br>
-            <h1>Prefactura y confirmación</h1>
+        <!-- progressbar -->
+        <div class="progress" style="height: 20px;">
+            <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar"
+                aria-label="Animated striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"
+                style="width: 50%"></div>
+        </div>
+        <br>
+        <h1>Prefactura y confirmación</h1>
+
+        <form action="index.php?page=Sedah_prefactura" method="post" id="infoEnvio">
 
             <div class="container" style="align-items: center; width: auto">
                 <h3>Su total a pagar es de: L {{Total}}</h3>
@@ -32,7 +32,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                {{foreach Libros}}
+                        {{foreach Libros}}
                         <tr>
                             <td>
                                 <p>{{nombreLibro}}</p>
@@ -42,9 +42,9 @@
                             <td>{{cantidad}}</td>
                             <td>$ {{SubTotal}}</td>
                         </tr>
-                {{endfor Libros}}
+                        {{endfor Libros}}
                 </table>
-                    </tbody>
+                </tbody>
             </div>
             <div class="container text-center row" style="align-items: center;">
                 <div class="col-6">

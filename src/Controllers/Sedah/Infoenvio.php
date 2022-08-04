@@ -75,9 +75,8 @@ class InfoEnvio extends PublicController
 
 
             setcookie("infoEnvio", $InfoEnvio, time() + 120);
-            print_r($_COOKIE['infoEnvio'])
-            
-               
+            print_r($_COOKIE['infoEnvio']);
+
                 // echo '<script type="text/JavaScript"> 
                 // alert("Cargando...");
                 // window.location.href = "index.php?page=sedah_prefactura";

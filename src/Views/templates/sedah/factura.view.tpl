@@ -3,7 +3,6 @@
     <div class="container-fluid">
         <ul id="listProgress">
             <li class="active" id="direccion"><strong>Envio</strong></li>
-            <li class="active" id="pago"><strong>Pago</strong></li>
             <li class="active" id="confirmacion"></i><strong>Confirmación</strong></li>
             <li class="active" id="factura"></i><strong>Factura</strong></li>
         </ul>
