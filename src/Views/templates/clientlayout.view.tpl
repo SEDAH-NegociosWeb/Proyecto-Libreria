@@ -32,7 +32,7 @@
                     <li><a href="index.php?page=index"><i class="fa-solid fa-house"></i>&nbsp;Inicio</a></li>
                     <li><a href="#"><i class="fa-solid fa-cart-shopping"></i>&nbsp;Catalogo</a></li>
                     <li><a href="#"><i class="fa-solid fa-cart-shopping"></i>&nbsp;</a></li>
-                    <li><a href="#">Sobre nosotros</a></li>
+                    <li><a href="#">&nbsp;Sobre nosotros</a></li>
                     <li><a href="#">Contactenos</a></li>
                 </ul>
 

@@ -31,7 +31,7 @@
         <ul class="navlinks">
           <li><a href="index.php?page=index"><i class="fa-solid fa-house"></i>&nbsp;Inicio</a></li>
           </li>
-          <li><a href="#"><i class="fa-solid fa-info"></i>&nbsp;Sobre nosotros</a></li>
+          <li><a href="index.php?page=sedah_sobrenosotros"><i class="fa-solid fa-info"></i>&nbsp;Sobre nosotros</a></li>
           <li><a href="#"><i class="fa-solid fa-phone"></i>&nbsp;Contactenos</a></li>
           <li><a href="index.php?page=sec_login"><i class="fas fa-sign-in-alt"></i>&nbsp;Iniciar Sesión</a>
         </ul>
