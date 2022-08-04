@@ -1,5 +1,5 @@
 <div class="container-fluid" style="padding-top: 150px; height: 100%;">
-    <h1>Trabajando con imagen</h1>
+    <h1>Trabajando con Imagen</h1>
     <hr>
 
     <section class="container-m"></section>

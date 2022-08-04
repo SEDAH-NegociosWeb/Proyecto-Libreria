@@ -37,7 +37,7 @@
                     <label for="idImagen" class="col-5">Imagen</label>
                     <fieldset class="row flex-center align-center">
                         <div class="custom-select" style="width:200px;">
-                            <select id="idImagen" name="idImagen" onchange="select()">
+                            <select id="idImagen" name="idImagen" onchange="select()" style="width:300px;">
                                 <option value="0">Selecciona </option>
                                 {{foreach imagen}}
                                 <option value="{{idImagen}}">{{direccion}}</option>

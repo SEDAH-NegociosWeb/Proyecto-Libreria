@@ -13,7 +13,7 @@
                 <th scope="col">Segundo Nombre</th>
                 <th scope="col">Primer Apellido</th>
                 <th scope="col">Segundo Apellido</th>
-                <th scope="col">ID Imagen</th>
+                <th scope="col">Imagen</th>
                 <th scope="col">Fecha Nacimiento</th>
                 <th scope="col"><a href="index.php?page=sedah.Autor.Autor&mode=INS&idAutor=0"><img src="public\imgs\add32px.png" alt="add"></a></th>
             </tr>
@@ -27,7 +27,9 @@
                 <td>{{segundoNombreAutor}}</td>
                 <td>{{primerApellidoAutor}}</td>
                 <td>{{segundoApellidoAutor}}</td>
-                <td>{{idImagen}}</td>
+                <td>
+                    <img style="width: 10%; height: auto;" src="{{direccion}}" alt="">
+                </td>
                 <td>{{fechaDeNacimiento}}</td>
                 <td>
                     <a href="index.php?page=sedah.Autor.Autor&mode=UPD&idAutor={{idAutor}}"><img src="public\imgs\edit.png" alt="editar" style="width: 20px;"></a>
