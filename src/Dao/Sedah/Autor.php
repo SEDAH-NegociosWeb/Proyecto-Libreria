@@ -20,6 +20,15 @@ class Autor extends Table
             $sqlstr,
             array("id" => $id));
     }
+
+    public static function obtenerTodosNombres(){
+        $sqlstr = "Select idAutor, concat(primerNombreAutor, ' ', primerApellidoAutor) as nombre from autor;";
+        return self::obtenerRegistros(
+            $sqlstr,
+            array()
+        );
+    }
+
     public static function insertarAutor(
         $primerNombreAutor,
         $segundoNombreAutor,

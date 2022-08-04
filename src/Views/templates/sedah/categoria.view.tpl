@@ -12,9 +12,9 @@
             </fieldset>
             <br>
             <fieldset class="row flex-center align-center">
-                <label for="nombreCategoria" class="col-5">Nombre</label>
-                <input class="col-7" id="nombreCategoria" name="nombreCategoria" value="{{nombreCategoria}}"
-                    placeholder="" type="text">
+                <input type="text" class="form-control" name="nombreCategoria" id="nombreCategoria"
+                    value="{{nombreCategoria}}" required />
+                <label for="nombreCategoria" class="form-label col-5">Nombre</label>
             </fieldset>
             <div class="container-fluid" style="width: 300px; padding-top: 48px;">
                 <fieldset class="row flex-end align-center">

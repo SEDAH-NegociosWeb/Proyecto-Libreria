@@ -49,53 +49,59 @@ class imagen extends PublicController
             \Utilities\Site::redirectToWithMsg("index.php?page=sedah.imagen.imagenLista", "Ocurrio un error, no se puede procesar");
         }
 
-        $this->_viewData["idImagen"] = intval($this->_viewData["idImagen"], 10);
-        if (isset($this->_viewData["errors"]) && count($this->_viewData["errors"]) > 0) {
-        } else {
-            unset($_SESSION["imagen_crsxToken"]);
-            switch ($this->_viewData["mode"]) {
-                case "INS":
-                    $result = \Dao\Sedah\imagen::insertarimagen(
-                        $this->_viewData["direccion"]
-                    );
-                    if ($result) {
-                        \Utilities\Site::redirectToWithMsg(
-                            "index.php?page=sedah.imagen.imagenLista",
-                            "¡Registro guardado exitosamente!"
+        $direccionimg = $this->_viewData["direccion"];
+        if ($direccionimg != "") {
+            $this->_viewData["idImagen"] = intval($this->_viewData["idImagen"], 10);
+            if (isset($this->_viewData["errors"]) && count($this->_viewData["errors"]) > 0) {
+            }
+            else {
+                unset($_SESSION["imagen_crsxToken"]);
+                switch ($this->_viewData["mode"]) {
+                    case "INS":
+                        $result = \Dao\Sedah\imagen::insertarimagen(
+                            $this->_viewData["direccion"]
                         );
-                    }
-                    break;
-                case "UPD":
-                    $result = \Dao\Sedah\imagen::actualizarimagen(
-                        $this->_viewData["idImagen"],
-                        $this->_viewData["direccion"]
-                    );
-                    if ($result) {
-                        \Utilities\Site::redirectToWithMsg(
-                            "index.php?page=sedah.imagen.imagenLista",
-                            "¡Registro Actualizado exitosamente!"
+                        if ($result) {
+                            \Utilities\Site::redirectToWithMsg(
+                                "index.php?page=sedah.imagen.imagenLista",
+                                "¡Registro guardado exitosamente!"
+                            );
+                        }
+                        break;
+                    case "UPD":
+                        $result = \Dao\Sedah\imagen::actualizarimagen(
+                            $this->_viewData["idImagen"],
+                            $this->_viewData["direccion"]
                         );
-                    }
-                    break;
-                case "DEL":
-                    $result = \Dao\Sedah\imagen::eliminarimagen(
-                        $this->_viewData["idImagen"]
-                    );
-                    if ($result) {
-                        \Utilities\Site::redirectToWithMsg(
-                            "index.php?page=sedah.imagen.imagenLista",
-                            "¡Registro Eliminado exitosamente!"
+                        if ($result) {
+                            \Utilities\Site::redirectToWithMsg(
+                                "index.php?page=sedah.imagen.imagenLista",
+                                "¡Registro Actualizado exitosamente!"
+                            );
+                        }
+                        break;
+                    case "DEL":
+                        $result = \Dao\Sedah\imagen::eliminarimagen(
+                            $this->_viewData["idImagen"]
                         );
-                    }
-                    break;
+                        if ($result) {
+                            \Utilities\Site::redirectToWithMsg(
+                                "index.php?page=sedah.imagen.imagenLista",
+                                "¡Registro Eliminado exitosamente!"
+                            );
+                        }
+                        break;
+                }
             }
         }
+
     }
     private function prepareViewData()
     {
         if ($this->_viewData["mode"] == "INS") {
             $this->_viewData["modeDsc"] = $this->_modeStrings[$this->_viewData["mode"]];
-        } else {
+        }
+        else {
             $tmpimagen = \Dao\Sedah\imagen::obtenerPorId(intval($this->_viewData["idImagen"], 10));
             \Utilities\ArrUtils::mergeFullArrayTo($tmpimagen, $this->_viewData);
             $this->_viewData["modeDsc"] = sprintf($this->_modeStrings[$this->_viewData["mode"]],
