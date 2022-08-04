@@ -158,6 +158,10 @@ class libro extends PublicController
             $this->handlePost();
         }
         $this->prepareViewData();
+        $this->_viewData["editorial"] = \Dao\sedah\editorial::obtenerTodos();
+        $this->_viewData["imagen"] = \Dao\sedah\imagen::obtenerTodos();
+        $this->_viewData["autor"] = \Dao\sedah\autor::obtenerTodosNombres();
+        $this->_viewData["categoria"] = \Dao\sedah\categoria::obtenerTodos();
         Renderer::render("sedah/libro", $this->_viewData);
     }
 }

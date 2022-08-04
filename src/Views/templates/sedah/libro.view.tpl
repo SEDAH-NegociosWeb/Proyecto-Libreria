@@ -14,7 +14,8 @@
                     </fieldset>
                     <br>
                     <fieldset class="row flex-center align-center">
-                        <input type="text" class="form-control" name="nombreLibro" id="nombreLibro" value="{{nombreLibro}}" required />
+                        <input type="text" class="form-control" name="nombreLibro" id="nombreLibro"
+                            value="{{nombreLibro}}" required />
                         <label for="nombreLibro" class="form-label col-5">Nombre Libro</label>
                     </fieldset>
                     <fieldset class="row flex-center align-center">
@@ -31,7 +32,8 @@
                         <label for="anio" class="form-label col-5">Año</label>
                     </fieldset>
                     <fieldset class="row flex-center align-center">
-                        <input type="number" class="form-control" name="precio" id="precio" value="{{precio}}" required />
+                        <input type="number" class="form-control" name="precio" id="precio" value="{{precio}}"
+                            required />
                         <label for="precio" class="form-label col-5">Precio</label>
                     </fieldset>
 
@@ -39,26 +41,57 @@
 
                 <div class="col-md-6">
                     <fieldset class="row flex-center align-center">
-                        <label for="idEditorial" class="col-5">idEditorial</label>
-                        <input class="col-7" id="idEditorial" name="idEditorial" value="{{idEditorial}}" placeholder=""
-                            type="text">
+                        <label for="idEditorial" class="col-5">Editorial</label>
+                        <div class="custom-select" style="width:200px;">
+                            <select id="idEditorial" name="idEditorial">
+                                <option value="0">Selecciona </option>
+                                {{foreach editorial}}
+                                <option value="{{idEditorial}}">{{nombreEditorial}}</option>
+                                {{endfor editorial}}
+                            </select>
+                        </div>
                     </fieldset>
+                    <br>
                     <fieldset class="row flex-center align-center">
-                        <label for="idImagen" class="col-5">idImagen</label>
-                        <input class="col-7" id="idImagen" name="idImagen" value="{{idImagen}}" placeholder=""
-                            type="text">
+                        <label for="idImagen" class="col-5">Imagen</label>
+                        <div class="custom-select" style="width:200px;">
+                            <select id="idImagen" name="idImagen" onchange="select()">
+                                <option value="0">Selecciona </option>
+                                {{foreach imagen}}
+                                <option value="{{idImagen}}">{{direccion}}</option>
+                                {{endfor imagen}}
+                            </select>
+                            <img style="width:80%; height:auto;" id="imgImagen" src="" alt="">
+                        </div>
                     </fieldset>
+                    <br>
                     <fieldset class="row flex-center align-center">
-                        <label for="idAutor" class="col-5">idAutor</label>
-                        <input class="col-7" id="idAutor" name="idAutor" value="{{idAutor}}" placeholder="" type="text">
+                        <label for="idAutor" class="col-5">Autor</label>
+                        <div class="custom-select" style="width:200px;">
+                            <select id="idAutor" name="idAutor">
+                                <option value="0">Selecciona </option>
+                                {{foreach autor}}
+                                <option value="{{idAutor}}">{{nombre}}</option>
+                                {{endfor autor}}
+                            </select>
+                        </div>
                     </fieldset>
+                    <br>
                     <fieldset class="row flex-center align-center">
-                        <label for="idCategoria" class="col-5">idCategoria</label>
-                        <input class="col-7" id="idCategoria" name="idCategoria" value="{{idCategoria}}" placeholder=""
-                            type="text">
+                        <label for="idCategoria" class="col-5">Categoria</label>
+                        <div class="custom-select" style="width:200px;">
+                            <select id="idCategoria" name="idCategoria">
+                                <option value="0">Selecciona </option>
+                                {{foreach categoria}}
+                                <option value="{{idCategoria}}">{{nombreCategoria}}</option>
+                                {{endfor categoria}}
+                            </select>
+                        </div>
                     </fieldset>
+                    <br>
                     <fieldset class="row flex-center align-center">
-                        <input type="text" class="form-control" name="existencia" id="existencia" value="{{existencia}}" required />
+                        <input type="text" class="form-control" name="existencia" id="existencia" value="{{existencia}}"
+                            required />
                         <label for="existencia" class="form-label col-5">Existencia</label>
                     </fieldset>
                 </div>
@@ -80,4 +113,9 @@
             window.location.assign("index.php?page=sedah.libro.libroLista");
         });
     });
+
+    var seleccion = document.getElementById("idImagen");
+    function select(){
+        document.getElementById("imgImagen").src = seleccion.selectedOptions[0].text;
+    }
 </script>

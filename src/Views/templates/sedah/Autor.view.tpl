@@ -34,10 +34,17 @@
                         <label for="segundoApellidoAutor" class="form-label col-5">Segundo Apellido</label>
                     </fieldset>
                     <br>
+                    <label for="idImagen" class="col-5">Imagen</label>
                     <fieldset class="row flex-center align-center">
-                        <label for="idImagen" class="col-5">ID Imagen</label>
-                        <input class="col-7" id="idImagen" name="idImagen" value="{{idImagen}}" placeholder=""
-                            type="text">
+                        <div class="custom-select" style="width:200px;">
+                            <select id="idImagen" name="idImagen" onchange="select()">
+                                <option value="0">Selecciona </option>
+                                {{foreach imagen}}
+                                <option value="{{idImagen}}">{{direccion}}</option>
+                                {{endfor imagen}}
+                            </select>
+                            <img style="width:80%; height:auto;" id="imgImagen" src="" alt="">
+                        </div>
                     </fieldset>
                     <br>
                     <fieldset class="row flex-center align-center">
@@ -64,4 +71,9 @@
             window.location.assign("index.php?page=sedah.Autor.AutorLista");
         });
     });
+
+    var seleccion = document.getElementById("idImagen");
+    function select(){
+        document.getElementById("imgImagen").src = seleccion.selectedOptions[0].text;
+    }
 </script>

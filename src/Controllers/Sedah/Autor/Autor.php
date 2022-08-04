@@ -144,6 +144,7 @@ class Autor extends PublicController
             $this->handlePost();
         }
         $this->prepareViewData();
+        $this->_viewData["imagen"] = \Dao\sedah\imagen::obtenerTodos();
         Renderer::render("sedah/Autor", $this->_viewData);
     }
 }
