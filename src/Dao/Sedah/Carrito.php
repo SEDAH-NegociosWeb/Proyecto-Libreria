@@ -28,7 +28,7 @@ class Carrito extends Table
     {
         // Ligar el id del producto con el usuario a través de la sesión
         $id_sesion = 1;//session_id();
-        $sqlstr = ("UPDATE `prueba`.`carrito_usuarios`
+        $sqlstr = ("UPDATE `carrito_usuarios`
         SET `cantidad` = (`cantidad` + :cantidad)
         WHERE `id_sesion` = :id_sesion and `id_libro` = :id_libro;");
         
@@ -66,7 +66,7 @@ class Carrito extends Table
         ON libro.idImagen = imagen.idImagen
         INNER JOIN autor
         ON libro.idAutor = autor.idAutor
-        WHERE carrito_usuarios.id_sesion = id_sesion;");
+        WHERE carrito_usuarios.id_sesion = :id_sesion;");
         $id_sesion = 1;//session_id();
         $sqlParams = [ "id_sesion" => $id_sesion ];
         return self::obtenerRegistros($sqlstr, $sqlParams);
