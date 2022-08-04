@@ -9,7 +9,7 @@ class ProcesoPago extends Table
 {
     public static function agregarDireccionEntrega($direccion, $departamento, $codigoPostal, $ciudad)
     {
-        $sqlstr = ("INSERT INTO `prueba`.`direccionentrega`
+        $sqlstr = ("INSERT INTO `direccionentrega`
         (`direccion`,
         `departamento`,
         `codigoPostal`,

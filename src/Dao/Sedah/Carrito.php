@@ -11,7 +11,7 @@ class Carrito extends Table
     public static function agregarProductoAlCarrito($id_libro, $cantidad)
     {
         // Ligar el id del producto con el usuario a través de la sesión
-        $id_sesion = 1;//session_id();
+        $id_sesion = \Utilities\Security::getUserId();
         $sqlstr = ("INSERT INTO carrito_usuarios(id_sesion, id_libro, cantidad) 
         VALUES (:id_sesion, :id_libro, :cantidad);");
         
@@ -27,7 +27,7 @@ class Carrito extends Table
     public static function actualizarProductoAlCarrito($id_libro, $cantidad)
     {
         // Ligar el id del producto con el usuario a través de la sesión
-        $id_sesion = 1;//session_id();
+        $id_sesion = \Utilities\Security::getUserId();//session_id();
         $sqlstr = ("UPDATE `carrito_usuarios`
         SET `cantidad` = (`cantidad` + :cantidad)
         WHERE `id_sesion` = :id_sesion and `id_libro` = :id_libro;");
@@ -46,7 +46,7 @@ class Carrito extends Table
 
         $sqlstr = ("SELECT id_libro FROM carrito_usuarios
         WHERE id_sesion = :id_sesion;");
-        $id_sesion = 1;//session_id();
+        $id_sesion = \Utilities\Security::getUserId();//session_id();
         $sqlParams = [ "id_sesion" => $id_sesion ];
         return self::obtenerRegistros($sqlstr, $sqlParams);
     }
@@ -67,7 +67,7 @@ class Carrito extends Table
         INNER JOIN autor
         ON libro.idAutor = autor.idAutor
         WHERE carrito_usuarios.id_sesion = :id_sesion;");
-        $id_sesion = 1;//session_id();
+        $id_sesion = \Utilities\Security::getUserId();//session_id();
         $sqlParams = [ "id_sesion" => $id_sesion ];
         return self::obtenerRegistros($sqlstr, $sqlParams);
     }
@@ -75,7 +75,7 @@ class Carrito extends Table
     public static function quitarProductoDelCarrito($id_libro)
     {
 
-        $id_sesion = 1;//session_id();
+        $id_sesion = \Utilities\Security::getUserId();//session_id();
         $sqlstr = ("DELETE FROM carrito_usuarios 
         WHERE id_sesion = :id_sesion AND id_libro = :id_libro");
         $sqlParams = [

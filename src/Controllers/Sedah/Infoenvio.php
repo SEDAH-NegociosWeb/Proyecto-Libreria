@@ -45,39 +45,52 @@ class InfoEnvio extends PublicController
         $this->viewData["ciudad"] = ($_POST["ciudad"]);
 
         if (Validators::IsEmpty($this->viewData["tADireccion"])) {
-            $this->viewData["error_direccion"][] =
-                "La dirección es requerida";
+            $this->viewData["error_direccion"][] = "La dirección es requerida";
             $hasErrors = true;
         }
         if ($this->viewData["sDepartamento"] == "0") {
-            $this->viewData["error_departamento"][] =
-                "Seleccione un departamento";
+            $this->viewData["error_departamento"][] = "Seleccione un departamento";
             $hasErrors = true;
         }
         if (Validators::IsEmpty($this->viewData["zip"])) {
-            $this->viewData["error_zip"][] =
-                "El código Zip es requerido";
+            $this->viewData["error_zip"][] = "El código Zip es requerido";
             $hasErrors = true;
         } elseif ((strlen($this->viewData["zip"])) != 5) {
-            $this->viewData["error_zip"][] =
-                "El código de Zip es incorrecto";
+            $this->viewData["error_zip"][] = "El código de Zip es incorrecto";
             $hasErrors = true;
         }
         if (Validators::IsEmpty($this->viewData["ciudad"])) {
-            $this->viewData["error_ciudad"][] =
-                "La ciudad es requerida";
+            $this->viewData["error_ciudad"][] = "La ciudad es requerida";
             $hasErrors = true;
         }
 
         if (!$hasErrors) {
 
-            $result = DaoProcesoPago::agregarDireccionEntrega($this->viewData["tADireccion"], $this->viewData["sDepartamento"], $this->viewData["zip"], $this->viewData["ciudad"]);
-            if ($result) {
-                echo '<script type="text/JavaScript"> 
-                alert("Cargando...");
-                window.location.href = "index.php?page=sedah_prefactura";
-                </script>';
-            }
+            $InfoEnvio = array(
+                "tADireccion" => $this->viewData["tADireccion"],
+                "sDepartamento" => $this->viewData["sDepartamento"],
+                "zip" => $$this->viewData["zip"],
+                "ciudad" => $$this->viewData["ciudad"]
+            );
+
+
+            setcookie("infoEnvio", $InfoEnvio, time() + 120);
+            print_r($_COOKIE['infoEnvio'])
+            
+               
+                // echo '<script type="text/JavaScript"> 
+                // alert("Cargando...");
+                // window.location.href = "index.php?page=sedah_prefactura";
+                // </script>';
+
+
+            // $result = DaoProcesoPago::agregarDireccionEntrega($this->viewData["tADireccion"], $this->viewData["sDepartamento"], $this->viewData["zip"], $this->viewData["ciudad"]);
+            // if ($result) {
+            //     echo '<script type="text/JavaScript"> 
+            //     alert("Cargando...");
+            //     window.location.href = "index.php?page=sedah_prefactura";
+            //     </script>';
+            // }
         }
     }
 }
