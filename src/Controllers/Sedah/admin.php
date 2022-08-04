@@ -4,6 +4,7 @@ namespace Controllers\Sedah;
 use Controllers\PublicController;
 use Views\Renderer;
 
+
 class Admin extends PublicController
 {
     public function run(): void
