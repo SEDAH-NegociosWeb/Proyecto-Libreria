@@ -26,7 +26,7 @@
     <input type="hidden" name="mode" value="{{mode}}" />
     <div class="container-fluid">
       <div class="logo">
-        <img id="logoPeq" src="public\imgs\logoPeq2.png" alt="logo">
+        <a href="index.php?page=sedah_admin"><img id="logoPeq" src="public\imgs\logoPeq2.png" alt="logo"></a>
       </div>
       <div id="mainListDiv" class="main_list">
         <ul class="navlinks">
