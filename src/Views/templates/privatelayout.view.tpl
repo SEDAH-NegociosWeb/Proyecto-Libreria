@@ -26,7 +26,7 @@
     <input type="hidden" name="mode" value="{{mode}}" />
     <div class="container-fluid">
       <div class="logo">
-         <a href="index.php?page=sedah_admin"><img id="logoPeq" src="public\imgs\logoPeq2.png" alt="logo"></a>
+        <a href="index.php?page=sedah_admin"><img id="logoPeq" src="public\imgs\logoPeq2.png" alt="logo"></a>
       </div>
       <div id="mainListDiv" class="main_list">
         <ul class="navlinks">
@@ -80,7 +80,7 @@
           <h4>Correo:</h4>
         </center>
         <center>
-          <h5 class="terms">sedah@example.com</h5>
+          <h5 class="terms">sedah2023@gmail.com</h5>
         </center>
         <center>
           <h4>Teléfonos:</h4>

@@ -6,6 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{SITE_TITLE}}</title>
   <link rel="stylesheet" href="/{{BASE_DIR}}/public/css/plantillaBase.css" />
+  <link rel="stylesheet" href="/{{BASE_DIR}}/public/css/Casa.css" />
+  <link rel="stylesheet" href="/{{BASE_DIR}}/public/css/nicepage.css" />
+  <script class="u-script" type="text/javascript" src="{{BASE_DIR}}/public/jquery.js"></script>
+  <script class="u-script" type="text/javascript" src="{{BASE_DIR}}/public/nicepage.js"></script>
   <script src="https://kit.fontawesome.com/{{FONT_AWESOME_KIT}}.js" crossorigin="anonymous"></script>
   <!-- Font Awesome -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
@@ -31,8 +35,8 @@
         <ul class="navlinks">
           <li><a href="index.php?page=index"><i class="fa-solid fa-house"></i>&nbsp;Inicio</a></li>
           </li>
-          <li><a href="#"><i class="fa-solid fa-info"></i>&nbsp;Sobre nosotros</a></li>
-          <li><a href="#"><i class="fa-solid fa-phone"></i>&nbsp;Contactenos</a></li>
+          <li><a href="index.php?page=sedah_sobrenosotros"><i class="fa-solid fa-info"></i>&nbsp;Sobre nosotros</a></li>
+          <li><a href="index.php?page=sedah_contactenos"><i class="fa-solid fa-phone"></i>&nbsp;Contactenos</a></li>
           <li><a href="index.php?page=sec_login"><i class="fas fa-sign-in-alt"></i>&nbsp;Iniciar Sesión</a>
         </ul>
       </div>
@@ -71,7 +75,7 @@
           <h4>Correo:</h4>
         </center>
         <center>
-          <h5 class="terms">sedah@example.com</h5>
+          <h5 class="terms">sedah2023@gmail.com</h5>
         </center>
         <center>
           <h4>Teléfonos:</h4>

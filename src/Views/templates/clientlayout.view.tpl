@@ -32,7 +32,7 @@
                     <li><a href="index.php?page=index"><i class="fa-solid fa-house"></i>&nbsp;Inicio</a></li>
                     <li><a href="#"><i class="fa-solid fa-cart-shopping"></i>&nbsp;Catalogo</a></li>
                     <li><a href="#"><i class="fa-solid fa-cart-shopping"></i>&nbsp;</a></li>
-                    <li><a href="#">Sobre nosotros</a></li>
+                    <li><a href="#">&nbsp;Sobre nosotros</a></li>
                     <li><a href="#">Contactenos</a></li>
                 </ul>
 
@@ -72,7 +72,7 @@
                     <h4>Correo:</h4>
                 </center>
                 <center>
-                    <h5 class="terms">sedah@example.com</h5>
+                    <h5 class="terms">sedah2023@gmail.com</h5>
                 </center>
                 <center>
                     <h4>Teléfonos:</h4>
