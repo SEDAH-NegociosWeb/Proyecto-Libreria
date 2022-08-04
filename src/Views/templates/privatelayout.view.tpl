@@ -35,8 +35,8 @@
           <li><a href="index.php?page=sedah_admin"><i class="fa-solid fa-pen-to-square"></i>&nbsp;Administrar</a></li>
           {{endif showOption}}
 
-          <li><a href="#"><i class="fa-solid fa-cart-shopping"></i>&nbsp;Catalogo</a></li>
-          <li><a href="#"><i class="fa-solid fa-cart-shopping"></i>&nbsp;</a></li>
+          <li><a href="index.php?page=sedah_LibrosJava"><i class="fa-solid fa-book"></i>&nbsp;Catalogo</a></li>
+          <li><a href="index.php?page=sedah_Carrito"><i class="fa-solid fa-cart-shopping"></i>&nbsp;</a></li>
 
           <li>
           {{with login}}

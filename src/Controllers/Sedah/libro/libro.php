@@ -26,6 +26,7 @@ class libro extends PublicController
         "idImagen" => "",
         "idAutor" => "",
         "idCategoria" => "",
+        "existencia" => "",
         "modeDsc" => "",
         "readonly" => false,
         "isInsert" => false,
@@ -57,61 +58,74 @@ class libro extends PublicController
             \Utilities\Site::redirectToWithMsg("index.php?page=sedah.libro.libroLista", "Ocurrio un error, no se puede procesar");
         }
 
-        $this->_viewData["idLibro"] = intval($this->_viewData["idLibro"], 10);
-        if (isset($this->_viewData["errors"]) && count($this->_viewData["errors"]) > 0) {
-        } else {
-            unset($_SESSION["libro_crsxToken"]);
-            switch ($this->_viewData["mode"]) {
-                case "INS":
-                    $result = \Dao\Sedah\libro::insertarlibro(
-                        $this->_viewData["nombreLibro"],
-                        $this->_viewData["descripcion"],
-                        $this->_viewData["edicion"],
-                        $this->_viewData["anio"],
-                        $this->_viewData["precio"],
-                        $this->_viewData["idEditorial"],
-                        $this->_viewData["idImagen"],
-                        $this->_viewData["idAutor"],
-                        $this->_viewData["idCategoria"]
-                    );
-                    if ($result) {
-                        \Utilities\Site::redirectToWithMsg(
-                            "index.php?page=sedah.libro.libroLista",
-                            "¡Registro guardado exitosamente!"
+        $nombre = $this->_viewData["nombreLibro"];
+        $anio = $this->_viewData["anio"];
+        $precio = $this->_viewData["precio"];
+        $IdEditorial = $this->_viewData["idEditorial"];
+        $IdAutor = $this->_viewData["idAutor"];
+        $IdCategoria = $this->_viewData["idCategoria"];
+        $existencia = $this->_viewData["existencia"];
+
+        if ($nombre != "" && $anio != "" && $precio != "" && $IdEditorial != "" && $IdAutor != "" && $IdAutor != "" && $existencia != "") {
+
+            $this->_viewData["idLibro"] = intval($this->_viewData["idLibro"], 10);
+            if (isset($this->_viewData["errors"]) && count($this->_viewData["errors"]) > 0) {
+            } else {
+                unset($_SESSION["libro_crsxToken"]);
+                switch ($this->_viewData["mode"]) {
+                    case "INS":
+                        $result = \Dao\Sedah\libro::insertarlibro(
+                            $this->_viewData["nombreLibro"],
+                            $this->_viewData["descripcion"],
+                            $this->_viewData["edicion"],
+                            $this->_viewData["anio"],
+                            $this->_viewData["precio"],
+                            $this->_viewData["idEditorial"],
+                            $this->_viewData["idImagen"],
+                            $this->_viewData["idAutor"],
+                            $this->_viewData["idCategoria"],
+                            $this->_viewData["existencia"]
                         );
-                    }
-                    break;
-                case "UPD":
-                    $result = \Dao\Sedah\libro::actualizarlibro(
-                        $this->_viewData["idLibro"],
-                        $this->_viewData["nombreLibro"],
-                        $this->_viewData["descripcion"],
-                        $this->_viewData["edicion"],
-                        $this->_viewData["anio"],
-                        $this->_viewData["precio"],
-                        $this->_viewData["idEditorial"],
-                        $this->_viewData["idImagen"],
-                        $this->_viewData["idAutor"],
-                        $this->_viewData["idCategoria"]
-                    );
-                    if ($result) {
-                        \Utilities\Site::redirectToWithMsg(
-                            "index.php?page=sedah.libro.libroLista",
-                            "¡Registro Actualizado exitosamente!"
+                        if ($result) {
+                            \Utilities\Site::redirectToWithMsg(
+                                "index.php?page=sedah.libro.libroLista",
+                                "¡Registro guardado exitosamente!"
+                            );
+                        }
+                        break;
+                    case "UPD":
+                        $result = \Dao\Sedah\libro::actualizarlibro(
+                            $this->_viewData["idLibro"],
+                            $this->_viewData["nombreLibro"],
+                            $this->_viewData["descripcion"],
+                            $this->_viewData["edicion"],
+                            $this->_viewData["anio"],
+                            $this->_viewData["precio"],
+                            $this->_viewData["idEditorial"],
+                            $this->_viewData["idImagen"],
+                            $this->_viewData["idAutor"],
+                            $this->_viewData["idCategoria"],
+                            $this->_viewData["existencia"]
                         );
-                    }
-                    break;
-                case "DEL":
-                    $result = \Dao\Sedah\libro::eliminarlibro(
-                        $this->_viewData["idLibro"]
-                    );
-                    if ($result) {
-                        \Utilities\Site::redirectToWithMsg(
-                            "index.php?page=sedah.libro.libroLista",
-                            "¡Registro Eliminado exitosamente!"
+                        if ($result) {
+                            \Utilities\Site::redirectToWithMsg(
+                                "index.php?page=sedah.libro.libroLista",
+                                "¡Registro Actualizado exitosamente!"
+                            );
+                        }
+                        break;
+                    case "DEL":
+                        $result = \Dao\Sedah\libro::eliminarlibro(
+                            $this->_viewData["idLibro"]
                         );
-                    }
-                    break;
+                        if ($result) {
+                            \Utilities\Site::redirectToWithMsg(
+                                "index.php?page=sedah.libro.libroLista",
+                                "¡Registro Eliminado exitosamente!"
+                            );
+                        }
+                        break;
+                }
             }
         }
     }
@@ -144,6 +158,10 @@ class libro extends PublicController
             $this->handlePost();
         }
         $this->prepareViewData();
+        $this->_viewData["editorial"] = \Dao\sedah\editorial::obtenerTodos();
+        $this->_viewData["imagen"] = \Dao\sedah\imagen::obtenerTodos();
+        $this->_viewData["autor"] = \Dao\sedah\autor::obtenerTodosNombres();
+        $this->_viewData["categoria"] = \Dao\sedah\categoria::obtenerTodos();
         Renderer::render("sedah/libro", $this->_viewData);
     }
 }

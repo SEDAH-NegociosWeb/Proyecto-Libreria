@@ -7,7 +7,10 @@ class Error extends PublicController
 {
     public function run(): void
     {
-        echo "error";
+        \Utilities\Site::redirectToWithMsg(
+            "index.php?page=Sedah_Carrito",
+            "Compra Cancelada!"
+        );
         die();
     }
 }

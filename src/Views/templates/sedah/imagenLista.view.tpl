@@ -18,7 +18,8 @@
             <tr>
                 <th scope="row">{{idImagen}}</th>
                 <td> <a href="index.php?page=sedah.imagen.imagen&mode=DSP&idImagen={{idImagen}}">
-                        {{direccion}}</a></td>
+                    <img style="width: 10%; height: auto;" src="{{direccion}}" alt="">
+                </a></td>
                 <td>
                     <a href="index.php?page=sedah.imagen.imagen&mode=UPD&idImagen={{idImagen}}"><img src="public\imgs\edit.png" alt="editar" style="width: 20px;"></a>
                     &nbsp;
