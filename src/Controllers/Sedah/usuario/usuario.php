@@ -12,8 +12,12 @@ class usuario extends PublicController
         "DSP" => "Detalle usuario",
         "DEL" => "Eliminando usuario");
     private $_cmbOpciones = array(
-        "EJ1" => "Ejemplo 1",
-        "EJ2" => "Ejemplo 2");
+        "ADM" => "Administrador",
+        "PBL" => "Usuario Público",
+        "CLI" => "Cliente");
+        private $_cmbEstados = array(
+            "ACT" => "Activo",
+            "INA" => "Inactivo");
     private $_viewData = array(
         "mode" => "INS",
         "usercod" => "",
@@ -32,7 +36,9 @@ class usuario extends PublicController
         "readonly" => false,
         "isInsert" => false,
         "cmbOpciones" => [],
-        "opciones" => "Eje1",
+        "opciones" => "",
+        "cmbEstados" => [],
+        "estado" => "",
         "errors" => [],
         "crsxToken" => "");
     private function init()
@@ -131,6 +137,13 @@ class usuario extends PublicController
             'text',
             'selected',
             $this->_viewData["opciones"]
+        );
+        $this->_viewData["cmbEstados"] = \Utilities\ArrUtils::toOptionsArray(
+            $this->_cmbEstados,
+            'value',
+            'text',
+            'selected',
+            $this->_viewData["estado"]
         );
         $this->_viewData["crsxToken"] = md5(time() . "usuario");
         $_SESSION["usuario_crsxToken"] = $this->_viewData["crsxToken"];

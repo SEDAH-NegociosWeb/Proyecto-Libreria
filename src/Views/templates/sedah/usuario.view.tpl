@@ -15,7 +15,8 @@
                     </fieldset>
                     <br>
                     <fieldset class="row flex-center align-center">
-                        <input type="email" class="form-control" name="useremail" id="useremail" value="{{useremail}}" />
+                        <input type="email" class="form-control" name="useremail" id="useremail"
+                            value="{{useremail}}" />
                         <label for="useremail" class="form-label col-5">Correo</label>
                     </fieldset>
                     <fieldset class="row flex-center align-center">
@@ -26,13 +27,28 @@
                 </div>
 
                 <div class="col-md-6">
+                    <label for="userest" class="col-5">Estado:</label>
                     <fieldset class="row flex-center align-center">
-                        <input type="text" class="form-control" name="userest" id="userest" value="{{userest}}" />
-                        <label for="userest" class="form-label col-5">Estado</label>
+                        <div class="custom-select" style="width:200px;">
+                            <select id="userest" name="userest">
+                                <option value="0">Selecciona </option>
+                                {{foreach cmbEstados}}
+                                <option value="{{value}}" {{selected}}>{{text}}</option>
+                                {{endfor cmbEstados}}
+                            </select>
+                        </div>
                     </fieldset>
+                    <br>
+                    <label for="usertipo" class="col-5">Tipo de Usuario:</label>
                     <fieldset class="row flex-center align-center">
-                        <input type="text" class="form-control" name="usertipo" id="usertipo" value="{{usertipo}}" />
-                        <label for="usertipo" class="form-label col-5">Tipo</label>
+                        <div class="custom-select" style="width:200px;">
+                            <select id="usertipo" name="usertipo">
+                                <option value="0">Selecciona </option>
+                                {{foreach cmbOpciones}}
+                                <option value="{{value}}" {{selected}}>{{text}}</option>
+                                {{endfor cmbOpciones}}
+                            </select>
+                        </div>
                     </fieldset>
                 </div>
             </div>

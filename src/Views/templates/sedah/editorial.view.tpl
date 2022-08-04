@@ -1,5 +1,5 @@
 <div class="container-fluid" style="padding-top: 150px; height: 100%;">
-    <h1>Trabajando con editorial</h1>
+    <h1>Trabajando con Editorial</h1>
     <hr>
     <section class="container-m"></section>
     <div class="container" style="width: 60rem;">

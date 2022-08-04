@@ -9,7 +9,7 @@
         <thead class="table-light">
             <tr>
                 <th>ID</th>
-                <th>Dirección</th>
+                <th>Imagen</th>
                 <th><a href="index.php?page=sedah.imagen.imagen&mode=INS&idImagen=0"><img src="public\imgs\add32px.png" alt="editar"></a></th>
             </tr>
         </thead>
@@ -21,8 +21,6 @@
                     <img style="width: 10%; height: auto;" src="{{direccion}}" alt="">
                 </a></td>
                 <td>
-                    <a href="index.php?page=sedah.imagen.imagen&mode=UPD&idImagen={{idImagen}}"><img src="public\imgs\edit.png" alt="editar" style="width: 20px;"></a>
-                    &nbsp;
                     <a href="index.php?page=sedah.imagen.imagen&mode=DEL&idImagen={{idImagen}}"><img src="public\imgs\delete.png" alt="editar" style="width: 22px;"></a>
                 </td>
             </tr>
