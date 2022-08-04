@@ -25,7 +25,7 @@
                             <input type="hidden" name="cantidad" id="cantidad" value="1">
 
                             <button type="submit" class="btn btn-secondary" name="action"
-                                onclick="agregarValorCarrito(this)" value="Agregar">Agregar al Carrito
+                                onclick="agregarValorCarrito(this)" value="Agregar">Añadir
                             </button>
                         </form>
                     </div>

@@ -1,6 +1,6 @@
 <div class="container-fluid" style="padding-top: 100px; width: 55%;">
   <div class="container">
-    <h2 class="text-center">Tu Carrito De Compra</h2>
+    <h2 class="text-center">TU CESTA</h2>
   </div>
   <hr>
   <div class="container">
