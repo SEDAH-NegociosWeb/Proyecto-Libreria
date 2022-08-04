@@ -40,8 +40,8 @@ class PreFactura extends PublicController
     {
         $PayPalOrder = new \Utilities\Paypal\PayPalOrder(
             "test".(time() - 10000000),
-            "http://localhost/ProyectoFinal_NegociosWeb/index.php?page=checkout_error",
-            "http://localhost/ProyectoFinal_NegociosWeb/index.php?page=checkout_accept"
+            "http://localhost/Proyecto-Libreria/index.php?page=checkout_error",
+            "http://localhost/Proyecto-Libreria/index.php?page=sedah_factura"
         );
         // Nombre, Autor, SKU, precio, impuesto, cantidad,categoria
         foreach ($this->viewData["Libros"] as $key => $value) {

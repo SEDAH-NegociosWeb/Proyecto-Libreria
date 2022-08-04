@@ -15,7 +15,7 @@ class Accept extends PublicController{
         } else {
             $dataview["orderjson"] = "No Order Available!!!";
         }
-        \Views\Renderer::render("paypal/accept", $dataview);
+        \Views\Renderer::render("sedah/factura", $dataview);
     }
 }
 

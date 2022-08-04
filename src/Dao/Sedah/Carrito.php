@@ -77,10 +77,22 @@ class Carrito extends Table
 
         $id_sesion = \Utilities\Security::getUserId();//session_id();
         $sqlstr = ("DELETE FROM carrito_usuarios 
-        WHERE id_sesion = :id_sesion AND id_libro = :id_libro");
+        WHERE id_sesion = :id_sesion AND id_libro = :id_libro;");
         $sqlParams = [
             "id_sesion" => $id_sesion ,
             "id_libro" => $id_libro 
+        ];
+        return self::executeNonQuery($sqlstr, $sqlParams);
+    }
+
+    public static function limpiarCarritoUsuario()
+    {
+
+        $id_sesion = \Utilities\Security::getUserId();//session_id();
+        $sqlstr = ("DELETE FROM carrito_usuarios 
+        WHERE id_sesion = :id_sesion;");
+        $sqlParams = [
+            "id_sesion" => $id_sesion ,
         ];
         return self::executeNonQuery($sqlstr, $sqlParams);
     }

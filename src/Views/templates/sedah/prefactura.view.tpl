@@ -20,7 +20,7 @@
         <form action="index.php?page=Sedah_prefactura" method="post" id="infoEnvio">
 
             <div class="container" style="align-items: center; width: auto">
-                <h3>Su total a pagar es de: L {{Total}}</h3>
+                <h3>Su total a pagar es de: $ {{Total}}</h3>
 
                 <table class="table">
                     <thead>

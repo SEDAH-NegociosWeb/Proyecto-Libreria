@@ -66,30 +66,23 @@ class InfoEnvio extends PublicController
 
         if (!$hasErrors) {
 
-            $InfoEnvio = array(
+            $this->viewData["infoEnvio"] = array(
                 "tADireccion" => $this->viewData["tADireccion"],
                 "sDepartamento" => $this->viewData["sDepartamento"],
-                "zip" => $$this->viewData["zip"],
-                "ciudad" => $$this->viewData["ciudad"]
+                "zip" => $this->viewData["zip"],
+                "ciudad" => $this->viewData["ciudad"]
             );
 
-
-            setcookie("infoEnvio", $InfoEnvio, time() + 120);
-            print_r($_COOKIE['infoEnvio']);
-
-                // echo '<script type="text/JavaScript"> 
-                // alert("Cargando...");
-                // window.location.href = "index.php?page=sedah_prefactura";
-                // </script>';
+            if (isset($_COOKIE["infoEnvio"])) {
+                setcookie("infoEnvio", serialize($this->viewData["infoEnvio"]), time() - 10);
+            }
+                setcookie("infoEnvio", serialize($this->viewData["infoEnvio"]), time() + 3600);
 
 
-            // $result = DaoProcesoPago::agregarDireccionEntrega($this->viewData["tADireccion"], $this->viewData["sDepartamento"], $this->viewData["zip"], $this->viewData["ciudad"]);
-            // if ($result) {
-            //     echo '<script type="text/JavaScript"> 
-            //     alert("Cargando...");
-            //     window.location.href = "index.php?page=sedah_prefactura";
-            //     </script>';
-            // }
+                echo '<script type="text/JavaScript"> 
+                alert("Cargando...");
+                window.location.href = "index.php?page=sedah_prefactura";
+                </script>';
         }
     }
 }
