@@ -10,7 +10,7 @@
 
 ### Link del Repositorio
 		
-	    	    https://github.com/SEDAH-NegociosWeb/Proyecto-Libreria.git 
+	    	   	 https://github.com/SEDAH-NegociosWeb/Proyecto-Libreria.git 
 
 ### Link del Video
                         
